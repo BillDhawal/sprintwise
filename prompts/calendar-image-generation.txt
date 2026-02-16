@@ -1,0 +1,28 @@
+You have two input images:
+1. USER IMAGE: A photo of the person (can be a selfie or portrait)
+2. REFERENCE CALENDAR: A themed calendar/planner template (e.g., beige planner with cartoon character, icons, layout)
+
+TASK:
+Create an output image that is an EXACT REPLICA of the reference calendar, with ONE change: replace ALL human or cartoon characters in the reference with a cartoon/stylized version of the person from the user image.
+
+REPLICATION RULES:
+- Copy the reference calendar layout EXACTLY: same structure, same positions, same proportions
+- Preserve the 30-day grid: same number of cells, same arrangement (e.g., 6×5 or 5×6)
+- Keep all 30 cells EMPTY—no text, numbers, or goals inside any cell
+- Preserve the theme: colors, line style, background, decorative elements (icons, borders, labels)
+- Preserve the exact pixel layout so the output can be overlaid with text at fixed coordinates
+
+CHARACTER REPLACEMENT:
+- Identify every human/cartoon character in the reference (e.g., person peeking over "Goals", avatar in corner)
+- Replace each with a cartoon/stylized version of the person from the user image
+- Match the reference's cartoon style (e.g., same line weight, same level of detail)
+- Keep the character's pose, position, and size the same as in the reference
+- Preserve clothing style/colors from the user image where possible
+- Keep only single character, the user in the same style
+
+CONSISTENCY:
+- Output must have the same dimensions and layout as the reference
+- The 30-day grid must remain in the same position with the same cell sizes
+- Only the character(s) change—everything else is an exact copy
+
+Purpose: The output will be used as a base. Goals will be added programmatically at fixed pixel positions. Layout must be predictable and identical across generations.

@@ -1,0 +1,167 @@
+{
+  "$schema": "Design system for Sprintwise - AI-replicable guidelines",
+  "designPrinciples": {
+    "highLevel": [
+      "Warmth & Approachability — Use a warm, inviting palette and soft rounded forms to make users feel welcomed",
+      "Clarity & Simplicity — Minimalist approach with ample whitespace, clear visual hierarchy, intuitive layouts",
+      "Consistency — Uniform styling for interactive elements, typography, and container shapes across all screens",
+      "Focus on Content — Design elements support readability and interaction without distraction",
+      "Subtle Depth — Very soft shadows or gradient-like shifts; avoid strong skeuomorphism",
+      "Smart Simplicity — Intelligent use of space and color; every element serves a purpose; calm and efficient"
+    ],
+    "style": "Modern, friendly flat design with subtle depth. Warm pastel accents on a cream canvas. Rounded corners dominate. Professional yet approachable."
+  },
+  "colorPalette": {
+    "background": {
+      "canvas": "#FFF9EC",
+      "description": "Primary page background — soft cream, warm off-white"
+    },
+    "text": {
+      "primary": "#0D253F",
+      "secondary": "#5A6B7D",
+      "tertiary": "#8B9AAB",
+      "onAccent": "#FFFFFF",
+      "description": "Primary for headings/strong text; secondary for body/labels; tertiary for hints/inactive"
+    },
+    "accents": {
+      "primary": "#6488E4",
+      "primaryDescription": "Hero accent — primary CTAs, active states, links, key interactive elements",
+      "peach": "#F9BE7C",
+      "peachDescription": "Warm accent — headers, prominent sections, secondary highlights",
+      "coral": "#E46472",
+      "coralDescription": "Active tags, progress indicators, selected chips, secondary actions",
+      "teal": "#309397",
+      "tealDescription": "Success states, secondary interactive elements, data visualization"
+    },
+    "borders": {
+      "light": "#E8E4DC",
+      "medium": "#D4CFC4",
+      "description": "Subtle borders for inputs, cards, dividers"
+    },
+    "status": {
+      "error": "#E46472",
+      "success": "#309397",
+      "warning": "#F9BE7C"
+    }
+  },
+  "typography": {
+    "fontFamily": "Poppins, system-ui, sans-serif",
+    "weights": {
+      "light": 300,
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "styles": {
+      "h1": { "size": "24-32px", "weight": "bold", "color": "text.primary" },
+      "h2": { "size": "18-22px", "weight": "semibold", "color": "text.primary" },
+      "h3": { "size": "16-18px", "weight": "semibold", "color": "text.primary" },
+      "body": { "size": "14-16px", "weight": "regular", "color": "text.secondary" },
+      "label": { "size": "14px", "weight": "medium", "color": "text.primary" },
+      "caption": { "size": "12px", "weight": "regular", "color": "text.tertiary" },
+      "button": { "size": "14-16px", "weight": "bold", "color": "onAccent or text.primary" }
+    }
+  },
+  "spacing": {
+    "grid": "8px",
+    "scale": {
+      "xxs": "4px",
+      "xs": "8px",
+      "sm": "12px",
+      "md": "16px",
+      "lg": "24px",
+      "xl": "32px",
+      "2xl": "48px"
+    },
+    "sectionGap": "24px",
+    "componentGap": "16px"
+  },
+  "borderRadius": {
+    "sm": "8px",
+    "md": "12px",
+    "lg": "16px",
+    "xl": "20px",
+    "2xl": "24px",
+    "full": "9999px",
+    "description": "Extremely rounded corners are a dominant feature; use generously"
+  },
+  "shadows": {
+    "sm": "0 2px 8px rgba(13, 37, 63, 0.06)",
+    "md": "0 4px 12px rgba(13, 37, 63, 0.08)",
+    "lg": "0 8px 24px rgba(13, 37, 63, 0.1)",
+    "description": "Very subtle, diffused; avoid harsh shadows"
+  },
+  "components": {
+    "page": {
+      "background": "canvas",
+      "padding": "lg/xl on edges"
+    },
+    "card": {
+      "background": "#FFFFFF",
+      "borderRadius": "lg",
+      "shadow": "sm",
+      "padding": "lg",
+      "border": "1px solid borders.light (optional)"
+    },
+    "buttonPrimary": {
+      "background": "accents.primary",
+      "color": "onAccent",
+      "borderRadius": "md",
+      "fontWeight": "bold",
+      "padding": "12px 24px",
+      "hover": "Slightly darker shade"
+    },
+    "buttonSecondary": {
+      "background": "transparent",
+      "border": "2px solid borders.medium",
+      "color": "text.primary",
+      "borderRadius": "md",
+      "fontWeight": "semibold",
+      "hover": "background canvas or light fill"
+    },
+    "chipSelected": {
+      "background": "accents.coral",
+      "color": "onAccent",
+      "borderRadius": "md",
+      "padding": "xs"
+    },
+    "chipUnselected": {
+      "background": "canvas or white",
+      "border": "1px solid borders.light",
+      "color": "text.secondary",
+      "borderRadius": "md",
+      "hover": "border medium"
+    },
+    "input": {
+      "background": "#FFFFFF",
+      "border": "1px solid borders.light",
+      "borderRadius": "sm",
+      "padding": "sm",
+      "color": "text.primary",
+      "focus": "ring 2px accents.primary, border accents.primary"
+    },
+    "nav": {
+      "background": "white with subtle border or canvas",
+      "height": "64px",
+      "activeLink": "accents.primary or coral background"
+    },
+    "progressBar": {
+      "track": "borders.light",
+      "fill": "accents.primary or accents.coral",
+      "borderRadius": "full",
+      "height": "8px"
+    },
+    "stepIndicator": {
+      "number": "circle, accents.primary or peach bg, white text",
+      "size": "32-48px"
+    }
+  },
+  "layout": {
+    "maxWidth": "1280px for main content",
+    "contentWidth": "max-w-4xl or max-w-6xl",
+    "verticalStacking": "Content blocks stacked vertically with sectionGap",
+    "leftAligned": "Dominant left alignment for text and modules"
+  },
+  "aiInstructions": "When building or styling UI: (1) Use Poppins font. (2) Background #FFF9EC, text #0D253F. (3) Primary buttons/CTAs: #6488E4. (4) Selected states/tags: #E46472. (5) Warm highlights: #F9BE7C. (6) Success/teal: #309397. (7) Rounded corners (12-20px). (8) Subtle shadows. (9) Generous whitespace. (10) Clean, minimal, warm, professional."
+}

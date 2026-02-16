@@ -1,0 +1,100 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Sprintwise API - Lambda + S3
+
+Parameters:
+  KIEApiKey:
+    Type: String
+    NoEcho: true
+    Description: KIE API key for image generation
+
+Globals:
+  Function:
+    Timeout: 60
+    MemorySize: 512
+    Architectures:
+      - arm64
+    Environment:
+      Variables:
+        KIE_BASE_URL: https://api.kie.ai
+        KIE_MODEL: nano-banana-pro
+
+Resources:
+  SprintwiseBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "sprintwise-uploads-${AWS::AccountId}"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders: ["*"]
+            AllowedMethods: [GET, PUT, POST]
+            AllowedOrigins: ["*"]
+            ExposedHeaders: []
+
+  SprintwiseBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SprintwiseBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: "*"
+            Action: s3:GetObject
+            Resource: !Sub "${SprintwiseBucket.Arn}/uploads/*"
+
+  SprintwiseApiGateway:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: sprintwise-api
+      StageName: prod
+      Cors:
+        AllowMethods: "'GET,POST,PUT,OPTIONS'"
+        AllowHeaders: "'*'"
+        AllowOrigin: "'*'"
+
+  SprintwiseApi:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: sprintwise-api
+      CodeUri: .
+      Handler: lambda_handler.handler
+      Runtime: python3.12
+      Environment:
+        Variables:
+          KIE_API_KEY: !Ref KIEApiKey
+          S3_BUCKET: !Ref SprintwiseBucket
+          PUBLIC_FILE_BASE: !Sub "https://${SprintwiseBucket}.s3.${AWS::Region}.amazonaws.com"
+      Events:
+        ProxyApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref SprintwiseApiGateway
+            Path: /{proxy+}
+            Method: ANY
+        RootApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref SprintwiseApiGateway
+            Path: /
+            Method: ANY
+      Policies:
+        - S3CrudPolicy:
+            BucketName: !Ref SprintwiseBucket
+
+Outputs:
+  ApiUrl:
+    Description: API Gateway URL
+    Value: !Sub "https://${SprintwiseApiGateway}.execute-api.${AWS::Region}.amazonaws.com/prod"
+  BucketName:
+    Description: S3 bucket for uploads
+    Value: !Ref SprintwiseBucket
+  BucketUrl:
+    Description: Base URL for uploaded files
+    Value: !Sub "https://${SprintwiseBucket}.s3.${AWS::Region}.amazonaws.com"

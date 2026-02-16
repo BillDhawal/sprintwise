@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8000:8000"
+    environment:
+      KIE_API_KEY: ${KIE_API_KEY}
+      KIE_BASE_URL: ${KIE_BASE_URL:-https://api.kie.ai}
+      KIE_MODEL: ${KIE_MODEL:-nano-banana-pro}
+      S3_BUCKET: ${S3_BUCKET}
+      AWS_REGION: ${AWS_REGION:-us-east-2}
+      PUBLIC_FILE_BASE: ${PUBLIC_FILE_BASE:-}
+    env_file:
+      - ../.env

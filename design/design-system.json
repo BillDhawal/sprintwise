@@ -1,0 +1,182 @@
+{
+  "purpose": "Comprehensive design system for Sprintwise. Use this file as the single source of truth when building new features. Follow all specifications exactly to maintain visual consistency.",
+  "tailwindConfigReference": "Colors, shadows, and border-radius are defined in tailwind.config.ts. Use the semantic class names (e.g., bg-accent-primary, text-text-secondary) rather than raw hex values.",
+  "designPrinciples": {
+    "highLevel": [
+      "Warmth & Approachability — Warm palette, soft rounded forms, inviting feel",
+      "Clarity & Simplicity — Minimalist, ample whitespace, clear hierarchy",
+      "Consistency — Uniform styling for all interactive elements across screens",
+      "Focus on Content — Design supports readability without distraction",
+      "Subtle Depth — Soft shadows only; avoid strong skeuomorphism",
+      "Smart Simplicity — Every element serves a purpose; calm and efficient"
+    ],
+    "style": "Modern, friendly flat design with subtle depth. Warm pastel accents on cream canvas. Rounded corners dominate. Professional yet approachable."
+  },
+  "colors": {
+    "canvas": {
+      "hex": "#FFF9EC",
+      "tailwind": "bg-canvas",
+      "usage": "Page background, default surface"
+    },
+    "text": {
+      "primary": { "hex": "#0D253F", "tailwind": "text-text-primary", "usage": "Headings, strong text, primary content" },
+      "secondary": { "hex": "#5A6B7D", "tailwind": "text-text-secondary", "usage": "Body text, labels, descriptions" },
+      "tertiary": { "hex": "#8B9AAB", "tailwind": "text-text-tertiary", "usage": "Hints, inactive states, captions" }
+    },
+    "accents": {
+      "primary": { "hex": "#6488E4", "tailwind": "bg-accent-primary, text-accent-primary", "usage": "Primary CTAs, active nav, progress fill, main actions" },
+      "peach": { "hex": "#F9BE7C", "tailwind": "bg-accent-peach", "usage": "Hero sections, warm highlights, info callouts (use /20 or /40 for tints)" },
+      "coral": { "hex": "#E46472", "tailwind": "bg-accent-coral", "usage": "Selected chips, secondary CTAs (gift), errors" },
+      "teal": { "hex": "#309397", "tailwind": "bg-accent-teal", "usage": "Success states, gift section backgrounds (use /10)" }
+    },
+    "borders": {
+      "light": { "hex": "#E8E4DC", "tailwind": "border-border-light", "usage": "Input borders, card borders, dividers" },
+      "medium": { "hex": "#D4CFC4", "tailwind": "border-border-medium", "usage": "Secondary button borders, stronger dividers" }
+    },
+    "white": { "tailwind": "bg-white", "usage": "Cards, nav, inputs" }
+  },
+  "typography": {
+    "fontFamily": "Poppins via next/font. Use font-sans (default).",
+    "weights": { "light": 300, "regular": 400, "medium": 500, "semibold": 600, "bold": 700 },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl font-bold text-text-primary",
+      "h2": "text-2xl font-bold text-text-primary",
+      "h3": "text-xl font-semibold text-text-primary",
+      "h4": "text-lg font-semibold text-text-primary",
+      "body": "text-base text-text-secondary",
+      "bodySm": "text-sm text-text-secondary",
+      "label": "text-sm font-medium text-text-primary",
+      "caption": "text-xs text-text-tertiary"
+    }
+  },
+  "spacing": {
+    "scale": { "xxs": "1", "xs": "2", "sm": "3", "md": "4", "lg": "6", "xl": "8", "2xl": "12" },
+    "sectionGap": "space-y-12 or py-16",
+    "componentGap": "space-y-6 or gap-4"
+  },
+  "borderRadius": {
+    "design-sm": "8px — inputs, small chips",
+    "design-md": "12px — buttons, chips, day pills",
+    "design-lg": "16px — cards, info boxes",
+    "design-xl": "20px — large cards, sections",
+    "design-2xl": "24px — main questionnaire card"
+  },
+  "shadows": {
+    "soft": "shadow-soft — subtle lift",
+    "soft-md": "shadow-soft-md — cards, elevated surfaces",
+    "soft-lg": "shadow-soft-lg — modals (if needed)"
+  },
+  "components": {
+    "pageLayout": {
+      "default": "min-h-screen bg-canvas",
+      "contentMaxWidth": "max-w-4xl or max-w-5xl or max-w-6xl mx-auto px-4",
+      "sectionPadding": "py-16 or py-20"
+    },
+    "nav": {
+      "container": "bg-white/95 backdrop-blur border-b border-border-light",
+      "inner": "max-w-6xl mx-auto px-4 sm:px-6",
+      "height": "h-16",
+      "logo": "text-xl font-semibold text-text-primary hover:text-accent-primary transition-colors",
+      "link": "px-3 py-2 rounded-design-md text-sm font-medium transition-colors",
+      "linkActive": "bg-accent-primary text-white",
+      "linkInactive": "text-text-secondary hover:text-text-primary hover:bg-canvas"
+    },
+    "buttonPrimary": {
+      "base": "px-6 py-3 bg-accent-primary text-white rounded-design-md font-bold hover:opacity-90 transition-opacity",
+      "large": "px-8 py-4 rounded-design-lg",
+      "disabled": "disabled:opacity-50 disabled:cursor-not-allowed"
+    },
+    "buttonSecondary": {
+      "base": "px-6 py-3 border-2 border-border-medium text-text-primary rounded-design-md font-semibold hover:bg-white/60 transition-colors",
+      "inline": "inline-flex items-center"
+    },
+    "buttonBack": {
+      "base": "px-6 py-2 border-2 border-border-medium rounded-design-md font-semibold text-text-primary hover:bg-canvas disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+    },
+    "chipSelected": {
+      "base": "bg-accent-coral text-white rounded-design-md px-3 py-2 text-sm font-medium"
+    },
+    "chipUnselected": {
+      "base": "bg-canvas text-text-secondary hover:bg-border-light border border-border-light rounded-design-md px-3 py-2 text-sm font-medium"
+    },
+    "chipToggleSelected": {
+      "base": "bg-accent-primary/20 text-accent-primary font-medium rounded-design-sm px-2 py-1 text-sm"
+    },
+    "input": {
+      "base": "w-full px-4 py-2 border border-border-light rounded-design-sm bg-white text-text-primary placeholder:text-text-tertiary focus:ring-2 focus:ring-accent-primary focus:border-accent-primary outline-none"
+    },
+    "textarea": {
+      "base": "w-full px-4 py-2 border border-border-light rounded-design-sm bg-white text-text-primary placeholder:text-text-tertiary focus:ring-2 focus:ring-accent-primary outline-none"
+    },
+    "label": {
+      "base": "block text-sm font-medium mb-2 text-text-primary"
+    },
+    "card": {
+      "base": "bg-white rounded-design-xl shadow-soft-md border border-border-light p-8",
+      "compact": "p-4 or p-6"
+    },
+    "cardSelectable": {
+      "base": "p-4 border-2 rounded-design-xl text-left transition-all",
+      "selected": "border-accent-primary bg-accent-primary/10",
+      "unselected": "border-border-light hover:border-border-medium"
+    },
+    "cardSelectableLarge": {
+      "base": "p-6 border-2 rounded-design-xl text-left transition-all",
+      "selected": "border-accent-primary bg-accent-primary/10",
+      "unselected": "border-border-light hover:border-border-medium"
+    },
+    "infoCallout": {
+      "peach": "bg-accent-peach/20 border border-accent-peach/40 rounded-design-lg p-4",
+      "primary": "bg-accent-primary/10 border border-accent-primary/30 rounded-design-xl p-4"
+    },
+    "progressBar": {
+      "track": "w-full bg-border-light rounded-full h-2",
+      "fill": "bg-accent-primary h-2 rounded-full transition-all duration-300"
+    },
+    "stepNumber": {
+      "base": "w-6 h-6 rounded-full bg-accent-primary text-white flex items-center justify-center text-sm",
+      "large": "w-12 h-12 rounded-full bg-accent-primary text-white flex items-center justify-center text-xl font-bold"
+    },
+    "dayCard": {
+      "active": "aspect-square border-2 rounded-design-md p-2 border-accent-primary/30 bg-white",
+      "rest": "aspect-square border-2 rounded-design-md p-2 border-border-light bg-canvas"
+    },
+    "listItemDay": {
+      "base": "border border-border-light rounded-design-lg p-4 hover:border-accent-primary/30 transition-colors",
+      "dayBadge": "w-8 h-8 bg-accent-primary text-white rounded-full font-semibold text-sm"
+    },
+    "loadingSpinner": {
+      "base": "animate-spin rounded-full h-12 w-12 border-2 border-border-light border-t-accent-primary"
+    },
+    "errorMessage": {
+      "base": "text-accent-coral"
+    },
+    "disabledButton": {
+      "base": "bg-border-light text-text-tertiary rounded-design-md font-medium cursor-not-allowed"
+    }
+  },
+  "pageSpecificPatterns": {
+    "heroSection": "bg-accent-peach/30 border-b border-border-light py-20 sm:py-28 text-center",
+    "sectionAlt": "bg-white border-b border-border-light",
+    "sectionTeal": "bg-accent-teal/10 border-b border-border-light",
+    "featureCard": "flex flex-col items-center text-center p-6 rounded-design-xl bg-canvas border border-border-light",
+    "footer": "py-8 text-center text-sm text-text-tertiary"
+  },
+  "printStyles": {
+    "note": "Use no-print and data-print-hide to hide UI from print. Use print-bw class for B&W print variant. Print uses minimal B&W styling."
+  },
+  "aiChecklist": [
+    "Use semantic Tailwind classes: bg-accent-primary, text-text-secondary, border-border-light, etc.",
+    "Use design radius: rounded-design-sm, rounded-design-md, rounded-design-lg, rounded-design-xl, rounded-design-2xl",
+    "Use design shadows: shadow-soft, shadow-soft-md",
+    "Primary actions: bg-accent-primary with white text",
+    "Selected state: bg-accent-coral for chips, border-accent-primary bg-accent-primary/10 for cards",
+    "Info callouts: bg-accent-peach/20 border-accent-peach/40 or bg-accent-primary/10 border-accent-primary/30",
+    "Labels: block text-sm font-medium mb-2 text-text-primary",
+    "Inputs: include focus:ring-2 focus:ring-accent-primary",
+    "Page background: bg-canvas",
+    "Cards: bg-white with border-border-light and shadow-soft-md",
+    "Spacing: Use space-y-6 for form groups, gap-4 for button groups",
+    "Font: font-sans (Poppins) is default; use font-bold for headings, font-semibold for subheadings"
+  ]
+}
