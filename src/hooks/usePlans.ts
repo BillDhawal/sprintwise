@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Goal, Plan } from '../types';
+import type { Goal, Plan } from '../types';
 
 // Placeholder hook for managing goals
 // This will be replaced with actual API calls in future phases
@@ -67,8 +67,7 @@ export const usePlans = () => {
 
   const giftPlan = async (
     goalTitle: string,
-    recipientEmail: string,
-    message?: string
+    recipientEmail: string
   ): Promise<void> => {
     setIsLoading(true);
     

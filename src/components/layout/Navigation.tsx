@@ -1,10 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { SignedIn, SignedOut, UserButton, useUser } from '@clerk/clerk-react';
 import Button from '../ui/Button';
 
 const Navigation = () => {
   const navigate = useNavigate();
-  const { isSignedIn } = useUser();
 
   return (
     <nav className="bg-white shadow-sm border-b border-gray-200">
@@ -14,47 +12,40 @@ const Navigation = () => {
             <Link to="/" className="text-2xl font-bold text-blue-600">
               Sprintwise
             </Link>
-            <SignedIn>
-              <div className="hidden md:flex space-x-4">
-                <Link
-                  to="/dashboard"
-                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Dashboard
-                </Link>
-                <Link
-                  to="/create-plan"
-                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Create Plan
-                </Link>
-                <Link
-                  to="/gift-plan"
-                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Gift Plan
-                </Link>
-              </div>
-            </SignedIn>
+            <div className="hidden md:flex space-x-4">
+              <Link
+                to="/dashboard"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Dashboard
+              </Link>
+              <Link
+                to="/create-plan"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Create Plan
+              </Link>
+              <Link
+                to="/gift-plan"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Gift Plan
+              </Link>
+            </div>
           </div>
           
           <div className="flex items-center space-x-4">
-            <SignedOut>
-              <Button
-                variant="ghost"
-                onClick={() => navigate('/sign-in')}
-              >
-                Sign In
-              </Button>
-              <Button
-                onClick={() => navigate('/sign-up')}
-              >
-                Sign Up
-              </Button>
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
+            <Button
+              variant="ghost"
+              onClick={() => navigate('/sign-in')}
+            >
+              Sign In
+            </Button>
+            <Button
+              onClick={() => navigate('/sign-up')}
+            >
+              Sign Up
+            </Button>
           </div>
         </div>
       </div>

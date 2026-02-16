@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { SignedIn, SignedOut } from '@clerk/clerk-react';
 import Button from '../components/ui/Button';
 import Layout from '../components/layout/Layout';
 
@@ -18,22 +17,12 @@ const HomePage = () => {
         </p>
 
         <div className="flex justify-center gap-4 mb-16">
-          <SignedOut>
-            <Button size="lg" onClick={() => navigate('/sign-up')}>
-              Get Started Free
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => navigate('/sign-in')}>
-              Sign In
-            </Button>
-          </SignedOut>
-          <SignedIn>
-            <Button size="lg" onClick={() => navigate('/create-plan')}>
-              Create a Plan
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => navigate('/dashboard')}>
-              View Dashboard
-            </Button>
-          </SignedIn>
+          <Button size="lg" onClick={() => navigate('/create-plan')}>
+            Get Started Free
+          </Button>
+          <Button size="lg" variant="outline" onClick={() => navigate('/dashboard')}>
+            View Dashboard
+          </Button>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mt-16">
@@ -65,16 +54,9 @@ const HomePage = () => {
           <p className="text-gray-700 mb-6">
             Help friends and family achieve their goals by gifting them a personalized 30-day plan
           </p>
-          <SignedIn>
-            <Button onClick={() => navigate('/gift-plan')}>
-              Gift a Plan
-            </Button>
-          </SignedIn>
-          <SignedOut>
-            <Button onClick={() => navigate('/sign-up')}>
-              Sign Up to Gift Plans
-            </Button>
-          </SignedOut>
+          <Button onClick={() => navigate('/gift-plan')}>
+            Gift a Plan
+          </Button>
         </div>
       </div>
     </Layout>

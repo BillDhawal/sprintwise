@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
-import { Plan, DayTask } from '../types';
+import type { Plan, DayTask } from '../types';
 
 const DashboardPage = () => {
   const navigate = useNavigate();
